@@ -1,99 +1,99 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ModelCPU - Virtual Machine Simulated by LLM</title>
-  <link rel="stylesheet" href="styles.css">
-  <script src="https://cdn.jsdelivr.net/npm/@pollinations/connect@0.1.7/dist/index.js" defer></script>
-</head>
-<body>
-  <header class="cyber-header">
-    <div class="logo-area">
-      <div class="cpu-icon">⚡</div>
-      <div>
-        <h1>ModelCPU <span class="badge-tag">v1.0</span></h1>
-        <p class="subtitle">An 8-bit Virtual Computer & Microcode Architecture Played by LLMs</p>
-      </div>
-    </div>
-    <div class="header-actions">
-      <polli-connect id="polliConnect"></polli-connect>
-      <a href="https://pollinations.ai/?ref=badge" target="_blank" rel="noopener" class="polli-badge-link">
-        <img src="https://raw.githubusercontent.com/pollinations/pollinations/main/packages/ui/src/brand/badge-made-with.svg" alt="Made with pollinations.ai">
-      </a>
-    </div>
-  </header>
-
-  <main class="dashboard">
-    <!-- Left Column: CPU Registers & Memory -->
-    <section class="panel system-panel">
-      <h2>Architecture & Registers</h2>
-      <div class="registers-grid">
-        <div class="reg-box"><span class="reg-lbl">PC</span><span class="reg-val" id="regPC">0x0024</span></div>
-        <div class="reg-box"><span class="reg-lbl">SP</span><span class="reg-val" id="regSP">0x00FF</span></div>
-        <div class="reg-box"><span class="reg-lbl">ACC</span><span class="reg-val" id="regA">0x42</span></div>
-        <div class="reg-box"><span class="reg-lbl">B</span><span class="reg-val" id="regB">0x10</span></div>
-        <div class="reg-box"><span class="reg-lbl">X</span><span class="reg-val" id="regX">0x05</span></div>
-        <div class="reg-box"><span class="reg-lbl">Y</span><span class="reg-val" id="regY">0x0A</span></div>
-      </div>
-
-      <div class="flags-bar">
-        <span class="flag-pill active">Z (Zero)</span>
-        <span class="flag-pill">C (Carry)</span>
-        <span class="flag-pill active">I (Interrupt)</span>
-        <span class="flag-pill">O (Overflow)</span>
-        <span class="flag-pill">N (Negative)</span>
-      </div>
-
-      <h3>Memory RAM Map (Hex)</h3>
-      <div class="hexdump-viewer" id="hexViewer">
-        <!-- Rendered via JS -->
-      </div>
-
-      <div class="controls-card">
-        <h3>Execution Mode</h3>
-        <div class="mode-toggles">
-          <button class="btn btn-secondary active" id="btnModeOffline">Offline CPU Engine (0 Pollen)</button>
-          <button class="btn btn-primary" id="btnModeLLM">LLM Microcode Machine</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Center/Right Column: Machine Console & Terminal -->
-    <section class="panel terminal-panel">
-      <div class="terminal-header">
-        <div class="term-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
-        <span class="term-title">ModelCPU TUI Shell — VT100 Emulator</span>
-        <span class="term-status" id="machineStatus">STATUS: READY</span>
-      </div>
-      <div class="terminal-body" id="termOutput">
-        <div class="term-line banner">[SYSTEM INITIALIZED] ModelCPU Architecture v1.0.4</div>
-        <div class="term-line banner">Based on WorldTUI & nesformer paradigms.</div>
-        <div class="term-line">Memory: 64KB Virtual RAM, 8-bit Data Bus, 16-bit Address Bus.</div>
-        <div class="term-line text-muted">Type "help", "step", "run fibonacci", or type any machine command below.</div>
-      </div>
-      <div class="terminal-input-bar">
-        <span class="prompt-symbol">&gt;&gt;</span>
-        <input type="text" id="termInput" placeholder="Enter opcode, assembly, or command (e.g. 'run counter', 'dump ram', 'peek 0x20')...">
-        <button class="btn btn-primary" id="btnSendOp">Execute</button>
-      </div>
-
-      <div class="quick-programs">
-        <span>Programs:</span>
-        <button class="chip" data-cmd="run fibonacci">Fibonacci Sequence</button>
-        <button class="chip" data-cmd="run primes">Prime Sieve</button>
-        <button class="chip" data-cmd="peek 0x0000">Dump Vector Table</button>
-        <button class="chip" data-cmd="step">Step Clock (1 Cycle)</button>
-        <button class="chip" data-cmd="reset">Machine Reset</button>
-      </div>
-    </section>
-  </main>
-
-  <footer class="app-footer">
-    <p>Powered by <a href="https://pollinations.ai/?ref=badge" target="_blank" rel="noopener">Pollinations.ai</a> API. Works with your own Pollen or free zero-pollen offline emulator.</p>
-  </footer>
-
-  <script src="pollinations-client.js"></script>
-  <script src="app.js"></script>
-</body>
-</html>
+-<-!-D-O-C-T-Y-P-E- -h-t-m-l->-
+-<-h-t-m-l- -l-a-n-g-=-"-e-n-"->-
+-<-h-e-a-d->-
+- - -<-m-e-t-a- -c-h-a-r-s-e-t-=-"-U-T-F---8-"->-
+- - -<-m-e-t-a- -n-a-m-e-=-"-v-i-e-w-p-o-r-t-"- -c-o-n-t-e-n-t-=-"-w-i-d-t-h-=-d-e-v-i-c-e---w-i-d-t-h-,- -i-n-i-t-i-a-l---s-c-a-l-e-=-1-.-0-"->-
+- - -<-t-i-t-l-e->-M-o-d-e-l-C-P-U- --- -V-i-r-t-u-a-l- -M-a-c-h-i-n-e- -S-i-m-u-l-a-t-e-d- -b-y- -L-L-M-<-/-t-i-t-l-e->-
+- - -<-l-i-n-k- -r-e-l-=-"-s-t-y-l-e-s-h-e-e-t-"- -h-r-e-f-=-"-s-t-y-l-e-s-.-c-s-s-"->-
+- - -<-s-c-r-i-p-t- -s-r-c-=-"-h-t-t-p-s-:-/-/-c-d-n-.-j-s-d-e-l-i-v-r-.-n-e-t-/-n-p-m-/-@-p-o-l-l-i-n-a-t-i-o-n-s-/-c-o-n-n-e-c-t-@-0-.-1-.-7-/-d-i-s-t-/-i-n-d-e-x-.-j-s-"- -d-e-f-e-r->-<-/-s-c-r-i-p-t->-
+-<-/-h-e-a-d->-
+-<-b-o-d-y->-
+- - -<-h-e-a-d-e-r- -c-l-a-s-s-=-"-c-y-b-e-r---h-e-a-d-e-r-"->-
+- - - - -<-d-i-v- -c-l-a-s-s-=-"-l-o-g-o---a-r-e-a-"->-
+- - - - - - -<-d-i-v- -c-l-a-s-s-=-"-c-p-u---i-c-o-n-"->-⚡-<-/-d-i-v->-
+- - - - - - -<-d-i-v->-
+- - - - - - - - -<-h-1->-M-o-d-e-l-C-P-U- -<-s-p-a-n- -c-l-a-s-s-=-"-b-a-d-g-e---t-a-g-"->-v-1-.-0-<-/-s-p-a-n->-<-/-h-1->-
+- - - - - - - - -<-p- -c-l-a-s-s-=-"-s-u-b-t-i-t-l-e-"->-A-n- -8---b-i-t- -V-i-r-t-u-a-l- -C-o-m-p-u-t-e-r- -&- -M-i-c-r-o-c-o-d-e- -A-r-c-h-i-t-e-c-t-u-r-e- -P-l-a-y-e-d- -b-y- -L-L-M-s-<-/-p->-
+- - - - - - -<-/-d-i-v->-
+- - - - -<-/-d-i-v->-
+- - - - -<-d-i-v- -c-l-a-s-s-=-"-h-e-a-d-e-r---a-c-t-i-o-n-s-"->-
+- - - - - - -<-p-o-l-l-i---c-o-n-n-e-c-t- -i-d-=-"-p-o-l-l-i-C-o-n-n-e-c-t-"->-<-/-p-o-l-l-i---c-o-n-n-e-c-t->-
+- - - - - - -<-a- -h-r-e-f-=-"-h-t-t-p-s-:-/-/-p-o-l-l-i-n-a-t-i-o-n-s-.-a-i-/-?-r-e-f-=-b-a-d-g-e-"- -t-a-r-g-e-t-=-"-_-b-l-a-n-k-"- -r-e-l-=-"-n-o-o-p-e-n-e-r-"- -c-l-a-s-s-=-"-p-o-l-l-i---b-a-d-g-e---l-i-n-k-"->-
+- - - - - - - - -<-i-m-g- -s-r-c-=-"-h-t-t-p-s-:-/-/-r-a-w-.-g-i-t-h-u-b-u-s-e-r-c-o-n-t-e-n-t-.-c-o-m-/-p-o-l-l-i-n-a-t-i-o-n-s-/-p-o-l-l-i-n-a-t-i-o-n-s-/-m-a-i-n-/-p-a-c-k-a-g-e-s-/-u-i-/-s-r-c-/-b-r-a-n-d-/-b-a-d-g-e---m-a-d-e---w-i-t-h-.-s-v-g-"- -a-l-t-=-"-M-a-d-e- -w-i-t-h- -p-o-l-l-i-n-a-t-i-o-n-s-.-a-i-"->-
+- - - - - - -<-/-a->-
+- - - - -<-/-d-i-v->-
+- - -<-/-h-e-a-d-e-r->-
+-
+- - -<-m-a-i-n- -c-l-a-s-s-=-"-d-a-s-h-b-o-a-r-d-"->-
+- - - - -<-!----- -L-e-f-t- -C-o-l-u-m-n-:- -C-P-U- -R-e-g-i-s-t-e-r-s- -&- -M-e-m-o-r-y- ----->-
+- - - - -<-s-e-c-t-i-o-n- -c-l-a-s-s-=-"-p-a-n-e-l- -s-y-s-t-e-m---p-a-n-e-l-"->-
+- - - - - - -<-h-2->-A-r-c-h-i-t-e-c-t-u-r-e- -&- -R-e-g-i-s-t-e-r-s-<-/-h-2->-
+- - - - - - -<-d-i-v- -c-l-a-s-s-=-"-r-e-g-i-s-t-e-r-s---g-r-i-d-"->-
+- - - - - - - - -<-d-i-v- -c-l-a-s-s-=-"-r-e-g---b-o-x-"->-<-s-p-a-n- -c-l-a-s-s-=-"-r-e-g---l-b-l-"->-P-C-<-/-s-p-a-n->-<-s-p-a-n- -c-l-a-s-s-=-"-r-e-g---v-a-l-"- -i-d-=-"-r-e-g-P-C-"->-0-x-0-0-2-4-<-/-s-p-a-n->-<-/-d-i-v->-
+- - - - - - - - -<-d-i-v- -c-l-a-s-s-=-"-r-e-g---b-o-x-"->-<-s-p-a-n- -c-l-a-s-s-=-"-r-e-g---l-b-l-"->-S-P-<-/-s-p-a-n->-<-s-p-a-n- -c-l-a-s-s-=-"-r-e-g---v-a-l-"- -i-d-=-"-r-e-g-S-P-"->-0-x-0-0-F-F-<-/-s-p-a-n->-<-/-d-i-v->-
+- - - - - - - - -<-d-i-v- -c-l-a-s-s-=-"-r-e-g---b-o-x-"->-<-s-p-a-n- -c-l-a-s-s-=-"-r-e-g---l-b-l-"->-A-C-C-<-/-s-p-a-n->-<-s-p-a-n- -c-l-a-s-s-=-"-r-e-g---v-a-l-"- -i-d-=-"-r-e-g-A-"->-0-x-4-2-<-/-s-p-a-n->-<-/-d-i-v->-
+- - - - - - - - -<-d-i-v- -c-l-a-s-s-=-"-r-e-g---b-o-x-"->-<-s-p-a-n- -c-l-a-s-s-=-"-r-e-g---l-b-l-"->-B-<-/-s-p-a-n->-<-s-p-a-n- -c-l-a-s-s-=-"-r-e-g---v-a-l-"- -i-d-=-"-r-e-g-B-"->-0-x-1-0-<-/-s-p-a-n->-<-/-d-i-v->-
+- - - - - - - - -<-d-i-v- -c-l-a-s-s-=-"-r-e-g---b-o-x-"->-<-s-p-a-n- -c-l-a-s-s-=-"-r-e-g---l-b-l-"->-X-<-/-s-p-a-n->-<-s-p-a-n- -c-l-a-s-s-=-"-r-e-g---v-a-l-"- -i-d-=-"-r-e-g-X-"->-0-x-0-5-<-/-s-p-a-n->-<-/-d-i-v->-
+- - - - - - - - -<-d-i-v- -c-l-a-s-s-=-"-r-e-g---b-o-x-"->-<-s-p-a-n- -c-l-a-s-s-=-"-r-e-g---l-b-l-"->-Y-<-/-s-p-a-n->-<-s-p-a-n- -c-l-a-s-s-=-"-r-e-g---v-a-l-"- -i-d-=-"-r-e-g-Y-"->-0-x-0-A-<-/-s-p-a-n->-<-/-d-i-v->-
+- - - - - - -<-/-d-i-v->-
+-
+- - - - - - -<-d-i-v- -c-l-a-s-s-=-"-f-l-a-g-s---b-a-r-"->-
+- - - - - - - - -<-s-p-a-n- -c-l-a-s-s-=-"-f-l-a-g---p-i-l-l- -a-c-t-i-v-e-"->-Z- -(-Z-e-r-o-)-<-/-s-p-a-n->-
+- - - - - - - - -<-s-p-a-n- -c-l-a-s-s-=-"-f-l-a-g---p-i-l-l-"->-C- -(-C-a-r-r-y-)-<-/-s-p-a-n->-
+- - - - - - - - -<-s-p-a-n- -c-l-a-s-s-=-"-f-l-a-g---p-i-l-l- -a-c-t-i-v-e-"->-I- -(-I-n-t-e-r-r-u-p-t-)-<-/-s-p-a-n->-
+- - - - - - - - -<-s-p-a-n- -c-l-a-s-s-=-"-f-l-a-g---p-i-l-l-"->-O- -(-O-v-e-r-f-l-o-w-)-<-/-s-p-a-n->-
+- - - - - - - - -<-s-p-a-n- -c-l-a-s-s-=-"-f-l-a-g---p-i-l-l-"->-N- -(-N-e-g-a-t-i-v-e-)-<-/-s-p-a-n->-
+- - - - - - -<-/-d-i-v->-
+-
+- - - - - - -<-h-3->-M-e-m-o-r-y- -R-A-M- -M-a-p- -(-H-e-x-)-<-/-h-3->-
+- - - - - - -<-d-i-v- -c-l-a-s-s-=-"-h-e-x-d-u-m-p---v-i-e-w-e-r-"- -i-d-=-"-h-e-x-V-i-e-w-e-r-"->-
+- - - - - - - - -<-!----- -R-e-n-d-e-r-e-d- -v-i-a- -J-S- ----->-
+- - - - - - -<-/-d-i-v->-
+-
+- - - - - - -<-d-i-v- -c-l-a-s-s-=-"-c-o-n-t-r-o-l-s---c-a-r-d-"->-
+- - - - - - - - -<-h-3->-E-x-e-c-u-t-i-o-n- -M-o-d-e-<-/-h-3->-
+- - - - - - - - -<-d-i-v- -c-l-a-s-s-=-"-m-o-d-e---t-o-g-g-l-e-s-"->-
+- - - - - - - - - - -<-b-u-t-t-o-n- -c-l-a-s-s-=-"-b-t-n- -b-t-n---s-e-c-o-n-d-a-r-y- -a-c-t-i-v-e-"- -i-d-=-"-b-t-n-M-o-d-e-O-f-f-l-i-n-e-"->-O-f-f-l-i-n-e- -C-P-U- -E-n-g-i-n-e- -(-0- -P-o-l-l-e-n-)-<-/-b-u-t-t-o-n->-
+- - - - - - - - - - -<-b-u-t-t-o-n- -c-l-a-s-s-=-"-b-t-n- -b-t-n---p-r-i-m-a-r-y-"- -i-d-=-"-b-t-n-M-o-d-e-L-L-M-"->-L-L-M- -M-i-c-r-o-c-o-d-e- -M-a-c-h-i-n-e-<-/-b-u-t-t-o-n->-
+- - - - - - - - -<-/-d-i-v->-
+- - - - - - -<-/-d-i-v->-
+- - - - -<-/-s-e-c-t-i-o-n->-
+-
+- - - - -<-!----- -C-e-n-t-e-r-/-R-i-g-h-t- -C-o-l-u-m-n-:- -M-a-c-h-i-n-e- -C-o-n-s-o-l-e- -&- -T-e-r-m-i-n-a-l- ----->-
+- - - - -<-s-e-c-t-i-o-n- -c-l-a-s-s-=-"-p-a-n-e-l- -t-e-r-m-i-n-a-l---p-a-n-e-l-"->-
+- - - - - - -<-d-i-v- -c-l-a-s-s-=-"-t-e-r-m-i-n-a-l---h-e-a-d-e-r-"->-
+- - - - - - - - -<-d-i-v- -c-l-a-s-s-=-"-t-e-r-m---d-o-t-s-"->-<-s-p-a-n- -c-l-a-s-s-=-"-d-o-t- -r-e-d-"->-<-/-s-p-a-n->-<-s-p-a-n- -c-l-a-s-s-=-"-d-o-t- -y-e-l-l-o-w-"->-<-/-s-p-a-n->-<-s-p-a-n- -c-l-a-s-s-=-"-d-o-t- -g-r-e-e-n-"->-<-/-s-p-a-n->-<-/-d-i-v->-
+- - - - - - - - -<-s-p-a-n- -c-l-a-s-s-=-"-t-e-r-m---t-i-t-l-e-"->-M-o-d-e-l-C-P-U- -T-U-I- -S-h-e-l-l- --- -V-T-1-0-0- -E-m-u-l-a-t-o-r-<-/-s-p-a-n->-
+- - - - - - - - -<-s-p-a-n- -c-l-a-s-s-=-"-t-e-r-m---s-t-a-t-u-s-"- -i-d-=-"-m-a-c-h-i-n-e-S-t-a-t-u-s-"->-S-T-A-T-U-S-:- -R-E-A-D-Y-<-/-s-p-a-n->-
+- - - - - - -<-/-d-i-v->-
+- - - - - - -<-d-i-v- -c-l-a-s-s-=-"-t-e-r-m-i-n-a-l---b-o-d-y-"- -i-d-=-"-t-e-r-m-O-u-t-p-u-t-"->-
+- - - - - - - - -<-d-i-v- -c-l-a-s-s-=-"-t-e-r-m---l-i-n-e- -b-a-n-n-e-r-"->-[-S-Y-S-T-E-M- -I-N-I-T-I-A-L-I-Z-E-D-]- -M-o-d-e-l-C-P-U- -A-r-c-h-i-t-e-c-t-u-r-e- -v-1-.-0-.-4-<-/-d-i-v->-
+- - - - - - - - -<-d-i-v- -c-l-a-s-s-=-"-t-e-r-m---l-i-n-e- -b-a-n-n-e-r-"->-B-a-s-e-d- -o-n- -W-o-r-l-d-T-U-I- -&- -n-e-s-f-o-r-m-e-r- -p-a-r-a-d-i-g-m-s-.-<-/-d-i-v->-
+- - - - - - - - -<-d-i-v- -c-l-a-s-s-=-"-t-e-r-m---l-i-n-e-"->-M-e-m-o-r-y-:- -6-4-K-B- -V-i-r-t-u-a-l- -R-A-M-,- -8---b-i-t- -D-a-t-a- -B-u-s-,- -1-6---b-i-t- -A-d-d-r-e-s-s- -B-u-s-.-<-/-d-i-v->-
+- - - - - - - - -<-d-i-v- -c-l-a-s-s-=-"-t-e-r-m---l-i-n-e- -t-e-x-t---m-u-t-e-d-"->-T-y-p-e- -"-h-e-l-p-"-,- -"-s-t-e-p-"-,- -"-r-u-n- -f-i-b-o-n-a-c-c-i-"-,- -o-r- -t-y-p-e- -a-n-y- -m-a-c-h-i-n-e- -c-o-m-m-a-n-d- -b-e-l-o-w-.-<-/-d-i-v->-
+- - - - - - -<-/-d-i-v->-
+- - - - - - -<-d-i-v- -c-l-a-s-s-=-"-t-e-r-m-i-n-a-l---i-n-p-u-t---b-a-r-"->-
+- - - - - - - - -<-s-p-a-n- -c-l-a-s-s-=-"-p-r-o-m-p-t---s-y-m-b-o-l-"->-&-g-t-;-&-g-t-;-<-/-s-p-a-n->-
+- - - - - - - - -<-i-n-p-u-t- -t-y-p-e-=-"-t-e-x-t-"- -i-d-=-"-t-e-r-m-I-n-p-u-t-"- -p-l-a-c-e-h-o-l-d-e-r-=-"-E-n-t-e-r- -o-p-c-o-d-e-,- -a-s-s-e-m-b-l-y-,- -o-r- -c-o-m-m-a-n-d- -(-e-.-g-.- -'-r-u-n- -c-o-u-n-t-e-r-'-,- -'-d-u-m-p- -r-a-m-'-,- -'-p-e-e-k- -0-x-2-0-'-)-.-.-.-"->-
+- - - - - - - - -<-b-u-t-t-o-n- -c-l-a-s-s-=-"-b-t-n- -b-t-n---p-r-i-m-a-r-y-"- -i-d-=-"-b-t-n-S-e-n-d-O-p-"->-E-x-e-c-u-t-e-<-/-b-u-t-t-o-n->-
+- - - - - - -<-/-d-i-v->-
+-
+- - - - - - -<-d-i-v- -c-l-a-s-s-=-"-q-u-i-c-k---p-r-o-g-r-a-m-s-"->-
+- - - - - - - - -<-s-p-a-n->-P-r-o-g-r-a-m-s-:-<-/-s-p-a-n->-
+- - - - - - - - -<-b-u-t-t-o-n- -c-l-a-s-s-=-"-c-h-i-p-"- -d-a-t-a---c-m-d-=-"-r-u-n- -f-i-b-o-n-a-c-c-i-"->-F-i-b-o-n-a-c-c-i- -S-e-q-u-e-n-c-e-<-/-b-u-t-t-o-n->-
+- - - - - - - - -<-b-u-t-t-o-n- -c-l-a-s-s-=-"-c-h-i-p-"- -d-a-t-a---c-m-d-=-"-r-u-n- -p-r-i-m-e-s-"->-P-r-i-m-e- -S-i-e-v-e-<-/-b-u-t-t-o-n->-
+- - - - - - - - -<-b-u-t-t-o-n- -c-l-a-s-s-=-"-c-h-i-p-"- -d-a-t-a---c-m-d-=-"-p-e-e-k- -0-x-0-0-0-0-"->-D-u-m-p- -V-e-c-t-o-r- -T-a-b-l-e-<-/-b-u-t-t-o-n->-
+- - - - - - - - -<-b-u-t-t-o-n- -c-l-a-s-s-=-"-c-h-i-p-"- -d-a-t-a---c-m-d-=-"-s-t-e-p-"->-S-t-e-p- -C-l-o-c-k- -(-1- -C-y-c-l-e-)-<-/-b-u-t-t-o-n->-
+- - - - - - - - -<-b-u-t-t-o-n- -c-l-a-s-s-=-"-c-h-i-p-"- -d-a-t-a---c-m-d-=-"-r-e-s-e-t-"->-M-a-c-h-i-n-e- -R-e-s-e-t-<-/-b-u-t-t-o-n->-
+- - - - - - -<-/-d-i-v->-
+- - - - -<-/-s-e-c-t-i-o-n->-
+- - -<-/-m-a-i-n->-
+-
+- - -<-f-o-o-t-e-r- -c-l-a-s-s-=-"-a-p-p---f-o-o-t-e-r-"->-
+- - - - -<-p->-P-o-w-e-r-e-d- -b-y- -<-a- -h-r-e-f-=-"-h-t-t-p-s-:-/-/-p-o-l-l-i-n-a-t-i-o-n-s-.-a-i-/-?-r-e-f-=-b-a-d-g-e-"- -t-a-r-g-e-t-=-"-_-b-l-a-n-k-"- -r-e-l-=-"-n-o-o-p-e-n-e-r-"->-P-o-l-l-i-n-a-t-i-o-n-s-.-a-i-<-/-a->- -A-P-I-.- -W-o-r-k-s- -w-i-t-h- -y-o-u-r- -o-w-n- -P-o-l-l-e-n- -o-r- -f-r-e-e- -z-e-r-o---p-o-l-l-e-n- -o-f-f-l-i-n-e- -e-m-u-l-a-t-o-r-.-<-/-p->-
+- - -<-/-f-o-o-t-e-r->-
+-
+- - -<-s-c-r-i-p-t- -s-r-c-=-"-p-o-l-l-i-n-a-t-i-o-n-s---c-l-i-e-n-t-.-j-s-"->-<-/-s-c-r-i-p-t->-
+- - -<-s-c-r-i-p-t- -s-r-c-=-"-a-p-p-.-j-s-"->-<-/-s-c-r-i-p-t->-
+-<-/-b-o-d-y->-
+-<-/-h-t-m-l->-

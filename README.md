@@ -2,6 +2,8 @@
 
 [![Made with pollinations.ai](https://raw.githubusercontent.com/pollinations/pollinations/main/packages/ui/src/brand/badge-made-with.svg)](https://pollinations.ai/?ref=badge)
 
+
+
 **ModelCPU** is an interactive virtual computer architecture and VT100 terminal inspired by [WorldTUI](https://simedw.com/2026/10/21/world-model-terminal/) and [nesformer](https://github.com/dbreunig/nesformer). An AI model simulates the microcode, registers, ALU calculations, and memory state of an 8-bit machine.
 
 Built for the **Pollinations Quest #19179: [QUEST] An app or game where a model plays a machine**.
